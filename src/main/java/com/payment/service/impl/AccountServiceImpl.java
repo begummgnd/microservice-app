@@ -1,10 +1,12 @@
 package com.payment.service.impl;
 
+import com.payment.constant.MessageConstants;
 import com.payment.dto.AccountDto;
+import com.payment.exception.ApiException;
 import com.payment.repository.AccountRepository;
 import com.payment.service.AccountService;
 import com.payment.service.mapper.AccountMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDto> getAllAccountsByCustomerNumber(String customerNumber) {
-        return null;
+    public List<AccountDto> getAllAccountsByCustomerNumber() {
+        throw new ApiException(MessageConstants.RENTACAR_DATA_NOT_FOUND, HttpStatus.NOT_FOUND);
     }
 }
